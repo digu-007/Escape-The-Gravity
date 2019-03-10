@@ -1,34 +1,26 @@
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
 
-// load images
-
 var ship = new Image();
 var back = new Image();
 var fg = new Image();
-var planet = new Image();
-var planet = new Image();
+var planetUp = new Image();
+var planetDown = new Image();
 
 ship.src = "images/ship.png";
 back.src = "images/back.png";
-fg.src = "images/fg.png";
-planet.src = "images/mercury.png";
-planet.src = "images/mercury.png";
+planetUp.src = "images/mercury.png";
+planetDown.src = "images/sun.png";
 
-
-// some variables
-
-var gap = 85;
+var gap = 150;
 var constant;
 
-var bX = 10;
-var bY = 150;
+var bX = 350;
+var bY = 300;
 
-var gravity = 1.5;
+var gravity = 1;
 
 var score = 0;
-
-// audio files
 
 var fly = new Audio();
 var scor = new Audio();
@@ -36,12 +28,10 @@ var scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-// on key down
-
 document.addEventListener("keydown",moveUp);
 
 function moveUp(){
-    bY -= 25;
+    bY -= 40;
     fly.play();
 }
 
@@ -63,22 +53,22 @@ function draw(){
 
     for(var i = 0; i < pipe.length; i++){
 
-        constant = planet.height+gap;
-        ctx.drawImage(planet,pipe[i].x,pipe[i].y);
-        ctx.drawImage(planet,pipe[i].x,pipe[i].y+constant);
+        constant = planetUp.height+gap;
+        ctx.drawImage(planetUp,pipe[i].x,pipe[i].y);
+        ctx.drawImage(planetDown,pipe[i].x,pipe[i].y+constant);
 
         pipe[i].x--;
 
         if( pipe[i].x == 125 ){
             pipe.push({
                 x : cvs.width,
-                y : Math.floor(Math.random()*planet.height)-planet.height
+                y : Math.floor(Math.random()*planetUp.height)-planetUp.height
             });
         }
 
         // detect collision
 
-        if( bX + ship.width >= pipe[i].x && bX <= pipe[i].x + planet.width && (bY <= pipe[i].y + planet.height || bY+ship.height >= pipe[i].y+constant) || bY + ship.height >=  cvs.height - fg.height){
+        if( bX + ship.width >= pipe[i].x && bX <= pipe[i].x + planetUp.width && (bY <= pipe[i].y + planetUp.height || bY+ship.height >= pipe[i].y+constant) || bY + ship.height >=  cvs.height - fg.height){
             location.reload(); // reload the page
         }
 
@@ -90,13 +80,11 @@ function draw(){
 
     }
 
-    ctx.drawImage(fg,0,cvs.height - fg.height);
-
     ctx.drawImage(ship,bX,bY);
 
     bY += gravity;
 
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = "#FFFFFF";
     ctx.font = "20px Verdana";
     ctx.fillText("Score : "+score,10,cvs.height-20);
 
