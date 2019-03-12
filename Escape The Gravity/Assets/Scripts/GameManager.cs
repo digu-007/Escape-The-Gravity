@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour {
                 CountdownPage.SetActive(false);
                 break;
             case PageState.GameOver:
+                //Debug.Log("HI");
                 StartPage.SetActive(false);
                 GameOverPage.SetActive(true);
                 CountdownPage.SetActive(false);
@@ -100,11 +101,13 @@ public class GameManager : MonoBehaviour {
 
     public void ConfirmGameOver() {
         //OnGameOverConfirmed();
+        //Debug.Log("load");
         Score.text = "0";
         SetPageState(PageState.Start);
     }
 
     public void StartGame() {
+        //Debug.Log("start");
         SetPageState(PageState.Countdown);
     }
 }
