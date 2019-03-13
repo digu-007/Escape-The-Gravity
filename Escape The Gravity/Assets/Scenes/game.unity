@@ -850,6 +850,7 @@ MonoBehaviour:
   CountdownPage: {fileID: 670205091}
   Score: {fileID: 963601376}
   High: {fileID: 1869995686}
+  StartHigh: {fileID: 8851189}
   Final: {fileID: 1472049720}
 --- !u!20 &519420031
 Camera:
