@@ -849,6 +849,8 @@ MonoBehaviour:
   GameOverPage: {fileID: 1212270373}
   CountdownPage: {fileID: 670205091}
   Score: {fileID: 963601376}
+  High: {fileID: 1869995686}
+  Final: {fileID: 1472049720}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     public GameObject GameOverPage;
     public GameObject CountdownPage;
     public Text Score;
+    public Text High;
+    public Text Final;
 
     enum PageState {
         None,
@@ -59,11 +61,12 @@ public class GameManager : MonoBehaviour {
     {
         gameOver = true;
         int savedScore = PlayerPrefs.GetInt("HighScore");
-        Debug.Log("hi");
         if (score > savedScore)
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
+        Final.text = "Score: " + score.ToString();
+        High.text = "HighScore: " + savedScore.ToString();
         SetPageState(PageState.GameOver);
     }
 
