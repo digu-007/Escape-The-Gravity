@@ -14,7 +14,6 @@ public class CountdownText : MonoBehaviour {
     {
         countdown = GetComponent<Text>();
         countdown.text = "3";
-        Debug.Log("coroutine");
         StartCoroutine("Countdown");
     }
 
