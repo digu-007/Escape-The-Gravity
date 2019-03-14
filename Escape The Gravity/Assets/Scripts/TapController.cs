@@ -9,7 +9,7 @@ public class TapController : MonoBehaviour {
     public static event PlayerDelegate OnPlayerDied;
     public static event PlayerDelegate OnPlayerScored;
 
-    public float tapForce = 200;
+    public float tapForce = 1000;
     public float tiltSmooth = 2;
     public Vector3 startPos;
 
@@ -21,8 +21,8 @@ public class TapController : MonoBehaviour {
 
     void Start() {
         rigidbody = GetComponent <Rigidbody2D>();
-        downRotation = Quaternion.Euler(0, 0, -35);
-        forwardRotation = Quaternion.Euler(0, 0, 35);
+        downRotation = Quaternion.Euler(0, 0, -25);
+        forwardRotation = Quaternion.Euler(0, 0, 25);
         game = GameManager.Instance;
     }
 

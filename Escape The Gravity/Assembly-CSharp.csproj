@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scr.cs" />
+    <Compile Include="Assets\script.cs" />
     <Compile Include="Assets\Scripts\CountdownText.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Parallaxer.cs" />

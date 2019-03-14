@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour {
 
     public bool GameOver { get { return gameOver; } }
 
+    void Start()
+    {
+        SetPageState(PageState.Countdown);
+    }
+
     void Awake()
     {
         Instance = this;
