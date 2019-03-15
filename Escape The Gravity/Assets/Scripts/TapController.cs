@@ -60,7 +60,7 @@ public class TapController : MonoBehaviour {
         {
             return;
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space") || Input.GetKeyDown(KeyCode.UpArrow)) {
             clickAudio.Play();
             transform.rotation = forwardRotation;
             rigidbody.velocity = Vector3.zero;
