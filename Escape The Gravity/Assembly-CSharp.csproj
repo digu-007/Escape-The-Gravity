@@ -61,14 +61,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Back.cs" />
     <Compile Include="Assets\Scripts\CountdownText.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Parallaxer.cs" />
+    <Compile Include="Assets\Scripts\Rules.cs" />
     <Compile Include="Assets\Scripts\TapController.cs" />
     <None Include="Assets\Planets\backup.txt" />
     <None Include="Assets\Fonts\Roboto Font\LICENSE.txt" />
-    <None Include="Assets\backup.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Digvijay/Desktop/ExePlore/Escape-The-Gravity/Escape The Gravity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

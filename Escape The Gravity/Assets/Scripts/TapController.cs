@@ -13,8 +13,7 @@ public class TapController : MonoBehaviour {
     public float tapForce = 1000;
     public float tiltSmooth = 2;
     public Vector3 startPos;
-
-    public AudioSource clickAudio;
+    
     public AudioSource hitAudio;
     public AudioSource scoreAudio;
 
@@ -61,7 +60,6 @@ public class TapController : MonoBehaviour {
             return;
         }
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space") || Input.GetKeyDown(KeyCode.UpArrow)) {
-            clickAudio.Play();
             transform.rotation = forwardRotation;
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(Vector2.up * tapForce, ForceMode2D.Force);

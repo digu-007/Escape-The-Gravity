@@ -9,6 +9,8 @@ public class CountdownText : MonoBehaviour {
     public delegate void CountdownFinished();
     public static event CountdownFinished OnCountdownFinished;
 
+    public AudioSource countdownAudio;
+
     Text countdown;
 
     void OnEnable()
@@ -24,6 +26,7 @@ public class CountdownText : MonoBehaviour {
         for (int i = 0; i < count; i++)
         {
             countdown.text = (count - i).ToString();
+            countdownAudio.Play();
             yield return new WaitForSeconds(.69f);
         }
         OnCountdownFinished();

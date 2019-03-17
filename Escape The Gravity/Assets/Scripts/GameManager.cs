@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("HighScore", score);
         }
         Final.text = "Score: " + score.ToString();
-        High.text = "HighScore: " + savedScore.ToString();
+        High.text = "Highscore: " + savedScore.ToString();
         SetPageState(PageState.GameOver);
     }
 
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour {
         Score.text = "0";
         SetPageState(PageState.Start);
         savedScore = PlayerPrefs.GetInt("HighScore");
-        StartHigh.text = "HighScore: " + savedScore.ToString();
+        StartHigh.text = "Highscore: " + savedScore.ToString();
     }
 
     public void StartGame() {
