@@ -2266,7 +2266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431.2, y: 261.4}
+  m_AnchoredPosition: {x: -424, y: 261.4}
   m_SizeDelta: {x: 121.3, y: 35.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671068635
@@ -2518,8 +2518,8 @@ MonoBehaviour:
   shiftSpeed: 6.9
   spawnRate: 1.2
   ySpawnRange:
-    minY: -1.25
-    maxY: 2
+    minY: -1.45
+    maxY: 2.2
   defaultSpawnPos: {x: 4.5, y: 0, z: 0}
   spawnImmediate: 0
   immediateSpawnPos: {x: 0, y: 0, z: 0}
@@ -2711,12 +2711,12 @@ Prefab:
     - target: {fileID: 114164523433061194, guid: b26dd7ddd1f8ba349b030efc53a72fbf,
         type: 2}
       propertyPath: ySpawnRange.minY
-      value: -1.25
+      value: -1.45
       objectReference: {fileID: 0}
     - target: {fileID: 114164523433061194, guid: b26dd7ddd1f8ba349b030efc53a72fbf,
         type: 2}
       propertyPath: ySpawnRange.maxY
-      value: 2
+      value: 2.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26dd7ddd1f8ba349b030efc53a72fbf, type: 2}
