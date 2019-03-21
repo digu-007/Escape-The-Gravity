@@ -1,6 +1,6 @@
 WebGL
 PlayerPath?
-C:/Users/Digvijay/Desktop/Escape The Gravity/webGL
+C:/Users/Digvijay/Desktop/ExePlore/Escape-The-Gravity/webGL
 SceneListBegin?
 Assets/Scenes/menu.unity
 Assets/Scenes/game.unity

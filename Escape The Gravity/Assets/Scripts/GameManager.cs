@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     public Text StartHigh;
     public Text Final;
 
-    string CreateURL = "127.0.0.1/update_score";
+    string CreateURL = "127.0.0.1:5000/update_score";
 
     enum PageState {
         None,
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour {
     void OnPlayerDied()
     {
         gameOver = true;
-        newScore(score);
         savedScore = PlayerPrefs.GetInt("HighScore");
         if (score > savedScore)
         {
@@ -78,6 +77,7 @@ public class GameManager : MonoBehaviour {
         Final.text = "Score: " + score.ToString();
         High.text = "Highscore: " + savedScore.ToString();
         SetPageState(PageState.GameOver);
+        newScore(score);
     }
 
     void OnPlayerScored()
@@ -132,8 +132,8 @@ public class GameManager : MonoBehaviour {
     public void SendRequest(string name, int score)
     {
         WWWForm form = new WWWForm();
-        form.AddField("NamePost", name);
-        form.AddField("scorePost", score);
+        form.AddField("game_id", name);
+        form.AddField("score", score);
 
         WWW www = new WWW(CreateURL, form);
     }
