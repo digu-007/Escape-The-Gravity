@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour {
     public Text StartHigh;
     public Text Final;
 
-    string CreateURL = "127.0.0.1:5000/update_score";
+    string CreateURL = "/api/newscore";
+    string tokens = "";
 
     enum PageState {
         None,
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour {
         Countdown
     }
 
-    int score = 0, savedScore = 0;
+    int score = 0;
     bool gameOver = false;
 
     public bool GameOver { get { return gameOver; } }
@@ -69,15 +70,15 @@ public class GameManager : MonoBehaviour {
     void OnPlayerDied()
     {
         gameOver = true;
-        savedScore = PlayerPrefs.GetInt("HighScore");
-        if (score > savedScore)
-        {
-            PlayerPrefs.SetInt("HighScore", score);
-        }
+        //savedScore = PlayerPrefs.GetInt("HighScore");
+        //if (score > savedScore)
+        //{
+        //    PlayerPrefs.SetInt("HighScore", score);
+        //}
         Final.text = "Score: " + score.ToString();
-        High.text = "Highscore: " + savedScore.ToString();
+        //High.text = "Highscore: " + savedScore.ToString();
         SetPageState(PageState.GameOver);
-        newScore(score);
+        SendRequest(score);
     }
 
     void OnPlayerScored()
@@ -116,25 +117,26 @@ public class GameManager : MonoBehaviour {
         OnGameOverConfirmed();
         Score.text = "0";
         SetPageState(PageState.Start);
-        savedScore = PlayerPrefs.GetInt("HighScore");
-        StartHigh.text = "Highscore: " + savedScore.ToString();
+        //savedScore = PlayerPrefs.GetInt("HighScore");
+        //StartHigh.text = "Highscore: " + savedScore.ToString();
     }
 
     public void StartGame() {
         SetPageState(PageState.Countdown);
     }
 
-    public void newScore(int score)
-    {
-        SendRequest("EscapeTheGravity", score);
-    }
-
-    public void SendRequest(string name, int score)
+    public void SendRequest(int score)
     {
         WWWForm form = new WWWForm();
-        form.AddField("game_id", name);
-        form.AddField("score", score);
+        Dictionary<string, string> headers = form.headers;
+        form.AddField("score", score.ToString());
+        form.AddField("tokens", tokens);
+        byte[] rawFormData = form.data;
+        WWW www = new WWW(CreateURL, rawFormData, headers);
+    }
 
-        WWW www = new WWW(CreateURL, form);
+    public void ctrl(string text)
+    {
+        tokens = text;
     }
 }

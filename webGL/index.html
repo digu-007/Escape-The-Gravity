@@ -10,6 +10,11 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/webGL.json", {onProgress: UnityProgress});
+	  setInterval(() => {
+	  	  console.log("yo");
+		  var tokens = "lace noob hai";
+		  gameInstance.SendMessage("Main Camera", "ctrl", tokens);
+	  }, 1000);
     </script>
   </head>
   <body>
